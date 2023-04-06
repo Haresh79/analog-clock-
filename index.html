@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+#c-body{height:360px; width:360px; background-color:white;
+box-shadow: 3px 10px 3px rgb(191,191,191,0.3) inset;
+margin:auto; border:8px solid #dbb039; border-radius:50%; position:relative;
+display:flex; justify-content:center; align-items:center;}
+.mid{height:11px; width:11px; background-color:black; border-radius:50%;
+z-index:4;}
+#s_stick{height:160px; width:4px; background-color:black; box-shadow:1px 1px 3px #b8b8b8;
+position:absolute; top:5%; left:50%; border-radius:40%; transform-origin:bottom;
+}
+#m_stick{height:127px; width:6px; background-color:#dbd639; transform-origin:bottom;
+position:absolute; top:14%; left:; border-radius:50px 50px; box-shadow:1px 1px 3px #b8b8b8;}
+#h_stick{height:100px; width:8px; background-color:#db3e39;transform-origin:bottom;
+position:absolute; top:22%; left:; border-radius:50px 50px; box-shadow:1px 1px 3px #b8b8b8;}
+span{ color:black; font-size:30px; font-weight:bold; position:absolute; text-shadow:1px 2px 3px rgb(191,191,191);}
+.t-12{top:-370px; left:46%;}
+.t-3{top:-205px; left:93%;}
+.t-6{top:-40px; left:48%;}
+.t-9{top:-205px; left:2%;}
+.text{position:relative; width:360px; margin:auto;}
+</style>
+</head>
+<body bgcolor="black">
+<div id="c-body">
+<div class="mid">
+</div>
+<div id="h_stick"></div>
+<div id="m_stick"></div>
+<div id="s_stick"></div>
+</div>
+<div class="text">
+<span class="t-12">12</span>
+<span class="t-3">3</span>
+<span class="t-6">6</span>
+<span class="t-9">9</span>
+</div>
+
+<script type="text/javascript">
+setInterval(()=>
+{
+     const time = new Date();
+     const h = time.getHours();
+     const m = time.getMinutes();
+     const s = time.getSeconds();
+     console.log(' hour '+h+', min '+m+' and sec '+s);
+     hrotation = 30*h + m/2; // 12h ->  360deg than 1h-> 360/12=30deg 
+     mrotation = 6*m;        //60m->360deg than 1m->360/60=6deg
+     srotation = 6*s;        //60s->360deg than 1s->360/60=6deg 
+     console.log(hrotation);
+     h_stick.style.transform = `rotate(${hrotation}deg)`; 
+     m_stick.style.transform = `rotate(${mrotation}deg)`; 
+     s_stick.style.transform=`rotate(${srotation}deg)`;
+}, 1000)
+
+
+</script>
+</body>
+</html>
